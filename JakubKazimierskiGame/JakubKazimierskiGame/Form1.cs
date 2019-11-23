@@ -17,6 +17,7 @@ namespace JakubKazimierskiGame
         PictureBox[] stars;
         int backgroundSpeed;
         Random rand;
+        int playerSpeed;
 
         #endregion
 
@@ -37,6 +38,7 @@ namespace JakubKazimierskiGame
             backgroundSpeed = 4;
             stars = new PictureBox[10];
             rand = new Random();
+            playerSpeed = 4;
         
             //rendering stars at background
             for (int i = 0; i < stars.Length; i ++)
@@ -89,6 +91,67 @@ namespace JakubKazimierskiGame
                 }
             }
 
+        }
+
+        #endregion
+
+        #region Moving Player Methods
+        
+        /// <summary>
+        /// Timer init moving left
+        /// </summary>
+        /// <param name="sender">The event sender</param>
+        /// <param name="e">The event object</param>
+        private void LeftTimer_Tick(object sender, EventArgs e)
+        {
+            if ( Player.Left > 10)
+            {
+
+                Player.Left -= playerSpeed;
+            }
+        }
+
+        /// <summary>
+        /// Timer init of moving rigth
+        /// </summary>
+        /// <param name="sender">The event sender</param>
+        /// <param name="e">The event object</param>
+        private void RightTimer_Tick(object sender, EventArgs e)
+        {
+            if (Player.Right < 630)
+            {
+
+                Player.Left += playerSpeed;
+            }
+        }
+
+        /// <summary>
+        /// Start moving
+        /// </summary>
+        /// <param name="sender">The event sender</param>
+        /// <param name="e">The event object</param>
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if(e.KeyCode == Keys.Right)
+            {
+                RightTimer.Start();
+            }
+            if (e.KeyCode == Keys.Left)
+            {
+                LeftTimer.Start();
+            }
+        }
+
+        /// <summary>
+        /// Stop moving
+        /// </summary>
+        /// <param name="sender">The even sender</param>
+        /// <param name="e">The event object</param>
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            RightTimer.Stop();
+            LeftTimer.Stop(); 
         }
 
         #endregion
