@@ -14,15 +14,20 @@ namespace JakubKazimierskiGame
     {
 
         #region Variables
+        Random rand;
+
         PictureBox[] stars;
         int backgroundSpeed;
-        Random rand;
-        
+         
         int playerSpeed;
 
         PictureBox[] munitions;
         int MunitionSpeed;
-       
+
+        PictureBox[] enemies;
+        int enemiesSpeed;
+
+
         #endregion
 
         public Form1()
@@ -40,11 +45,14 @@ namespace JakubKazimierskiGame
         private void Form1_Load(object sender, EventArgs e)
         {
             backgroundSpeed = 4;
-            stars = new PictureBox[15];
-            rand = new Random();
             playerSpeed = 4;
-
             MunitionSpeed = 20;
+            enemiesSpeed = 4;
+
+            stars = new PictureBox[15];
+            
+            rand = new Random();
+            
             munitions = new PictureBox[2];
           
 
