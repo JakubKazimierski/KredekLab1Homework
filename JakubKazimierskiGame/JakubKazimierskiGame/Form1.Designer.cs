@@ -29,12 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.MoveBackground = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // MoveBackground
+            // 
+            this.MoveBackground.Enabled = true;
+            this.MoveBackground.Interval = 10;
+            this.MoveBackground.Tick += new System.EventHandler(this.MoveBackground_Tick);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.SystemColors.InfoText;
+            this.ClientSize = new System.Drawing.Size(639, 515);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(655, 553);
+            this.MinimumSize = new System.Drawing.Size(655, 553);
+            this.Name = "Form1";
+            this.Text = "StarBattle";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer MoveBackground;
     }
 }
 
