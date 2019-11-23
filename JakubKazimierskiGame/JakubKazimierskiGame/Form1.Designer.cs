@@ -34,6 +34,7 @@
             this.Player = new System.Windows.Forms.PictureBox();
             this.LeftTimer = new System.Windows.Forms.Timer(this.components);
             this.RightTimer = new System.Windows.Forms.Timer(this.components);
+            this.MunitionTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +65,12 @@
             this.RightTimer.Interval = 5;
             this.RightTimer.Tick += new System.EventHandler(this.RightTimer_Tick);
             // 
+            // MunitionTimer
+            // 
+            this.MunitionTimer.Enabled = true;
+            this.MunitionTimer.Interval = 30;
+            this.MunitionTimer.Tick += new System.EventHandler(this.MunitionTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -90,6 +97,7 @@
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Timer LeftTimer;
         private System.Windows.Forms.Timer RightTimer;
+        private System.Windows.Forms.Timer MunitionTimer;
     }
 }
 

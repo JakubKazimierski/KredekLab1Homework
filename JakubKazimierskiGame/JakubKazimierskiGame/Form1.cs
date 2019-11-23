@@ -17,8 +17,12 @@ namespace JakubKazimierskiGame
         PictureBox[] stars;
         int backgroundSpeed;
         Random rand;
+        
         int playerSpeed;
 
+        PictureBox[] munitions;
+        int MunitionSpeed;
+       
         #endregion
 
         public Form1()
@@ -36,10 +40,27 @@ namespace JakubKazimierskiGame
         private void Form1_Load(object sender, EventArgs e)
         {
             backgroundSpeed = 4;
-            stars = new PictureBox[10];
+            stars = new PictureBox[15];
             rand = new Random();
             playerSpeed = 4;
-        
+
+            MunitionSpeed = 20;
+            munitions = new PictureBox[2];
+          
+
+            //rendering ammo
+            for(int i = 0; i<munitions.Length; i++ )
+            {
+
+                munitions[i] = new PictureBox();
+                munitions[i].BorderStyle = BorderStyle.None;
+                munitions[i].Size = new Size(8, 8);
+                munitions[i].BackColor = Color.Red;
+                this.Controls.Add(munitions[i]);
+            }
+
+
+
             //rendering stars at background
             for (int i = 0; i < stars.Length; i ++)
             {
@@ -154,6 +175,25 @@ namespace JakubKazimierskiGame
             LeftTimer.Stop(); 
         }
 
+        #endregion
+
+        #region Shooting method
+        private void MunitionTimer_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < munitions.Length; i++)
+            {
+                if (munitions[i].Top > 0)
+                {
+                    munitions[i].Visible = true;
+                    munitions[i].Top -= MunitionSpeed;
+                }
+                else
+                {
+                    munitions[i].Visible = false;
+                    munitions[i].Location = new Point(Player.Location.X + 20, Player.Location.Y - i * 30);
+                }
+            }
+        }
         #endregion
     }
 }
