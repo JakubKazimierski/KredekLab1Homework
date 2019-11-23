@@ -12,6 +12,9 @@ namespace JakubKazimierskiGame
 {
     public partial class Form1 : Form
     {
+        
+        
+
 
         #region Variables
         Random rand;
@@ -54,8 +57,9 @@ namespace JakubKazimierskiGame
             rand = new Random();
             
             munitions = new PictureBox[2];
-          
 
+            enemies = new PictureBox[10];
+            
             //rendering ammo
             for(int i = 0; i<munitions.Length; i++ )
             {
@@ -95,6 +99,40 @@ namespace JakubKazimierskiGame
 
             }
         
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i] = new PictureBox();
+                enemies[i].Size = new Size(40, 40);
+                enemies[i].SizeMode = PictureBoxSizeMode.Zoom;
+                enemies[i].BorderStyle = BorderStyle.None;
+                enemies[i].Visible = false;
+            
+                enemies[i].Location = new Point((i + 1) * 50, -50);
+                this.Controls.Add(enemies[i]);
+            }
+
+            //load enemies img from file
+
+            Image enemi1 = Image.FromFile("images\\E3.png");
+            Image enemi2 = Image.FromFile("images\\E3.png");
+            Image enemi3 = Image.FromFile("images\\E3.png");
+
+            Image boss1 = Image.FromFile("images\\E3.png");
+            Image boss2 = Image.FromFile("images\\E3.png");
+
+
+            //create enemies img
+               enemies[0].Image = boss1;
+               enemies[1].Image = enemi3;
+               enemies[2].Image = enemi2;
+               enemies[3].Image = enemi3;
+               enemies[4].Image = enemi1;
+               enemies[5].Image = enemi1;
+               enemies[6].Image = enemi3;
+               enemies[7].Image = enemi3;
+               enemies[8].Image = enemi2;
+               enemies[9].Image = boss2;
+              
         }
 
         private void MoveBackground_Tick(object sender, EventArgs e)
@@ -202,6 +240,42 @@ namespace JakubKazimierskiGame
                 }
             }
         }
+
         #endregion
+
+       
+        /// <summary>
+        /// Create enemies method to move
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="speed"></param>
+        private void MoveEnemies(PictureBox[] array, int speed)
+        {
+            
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i] != null)
+                    {
+                        array[i].Visible = true;
+                        array[i].Top += speed;
+
+                        if (array[i].Top > this.Height)
+                        {
+                            array[i].Location = new Point((i + 1) * 50, -200);
+                        }
+                    }
+                }
+            
+        }
+        
+        /// <summary>
+        /// Create enemies timer to move
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MoveEnemiesTimer_Tick(object sender, EventArgs e)
+        {
+            MoveEnemies(enemies, enemiesSpeed);
+        }
     }
 }
