@@ -40,6 +40,8 @@
             this.EndButton = new System.Windows.Forms.Button();
             this.ReplayButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.levelLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,8 +74,7 @@
             // 
             // MunitionTimer
             // 
-            this.MunitionTimer.Enabled = true;
-            this.MunitionTimer.Interval = 30;
+            this.MunitionTimer.Interval = 1;
             this.MunitionTimer.Tick += new System.EventHandler(this.MunitionTimer_Tick);
             // 
             // MoveEnemiesTimer
@@ -124,12 +125,34 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Visible = false;
             // 
+            // scoreLabel
+            // 
+            this.scoreLabel.ForeColor = System.Drawing.Color.Silver;
+            this.scoreLabel.Location = new System.Drawing.Point(567, 18);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(60, 33);
+            this.scoreLabel.TabIndex = 4;
+            this.scoreLabel.Text = "SCORE: 0";
+            this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // levelLabel
+            // 
+            this.levelLabel.ForeColor = System.Drawing.Color.Silver;
+            this.levelLabel.Location = new System.Drawing.Point(567, 51);
+            this.levelLabel.Name = "levelLabel";
+            this.levelLabel.Size = new System.Drawing.Size(60, 23);
+            this.levelLabel.TabIndex = 5;
+            this.levelLabel.Text = "LEVEL: 0";
+            this.levelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InfoText;
             this.ClientSize = new System.Drawing.Size(639, 515);
+            this.Controls.Add(this.levelLabel);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ReplayButton);
             this.Controls.Add(this.EndButton);
@@ -159,6 +182,8 @@
         private System.Windows.Forms.Button EndButton;
         private System.Windows.Forms.Button ReplayButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label levelLabel;
     }
 }
 

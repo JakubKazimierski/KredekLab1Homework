@@ -250,6 +250,15 @@ namespace JakubKazimierskiGame
                 {
                     LeftTimer.Start();
                 }
+
+                //start fire
+                if (e.KeyCode == Keys.A)
+                {
+                    
+                   
+                    MunitionTimer.Start();
+                    
+                }
             }
         }
 
@@ -261,13 +270,14 @@ namespace JakubKazimierskiGame
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             RightTimer.Stop();
-            LeftTimer.Stop(); 
-            
-            if(e.KeyCode == Keys.Space)
+            LeftTimer.Stop();
+
+
+            if (e.KeyCode == Keys.Space)
             {
-                if(!gameIsOver)
+                if (!gameIsOver)
                 {
-                    if(pause)
+                    if (pause)
                     {
                         StartTimers();
                         label1.Visible = false;
@@ -283,9 +293,21 @@ namespace JakubKazimierskiGame
                     }
                 }
             }
-        
-        }
 
+            //end fire
+            if (e.KeyCode == Keys.S)
+            {
+                MunitionTimer.Stop();
+
+                for (int i = 0; i < munitions.Length; i++)
+                {
+                    
+                    munitions[i].Visible = false;
+                    
+                }
+
+            }
+        }
         #endregion
 
         #region Shooting method
@@ -355,8 +377,30 @@ namespace JakubKazimierskiGame
             {
                 for (int j = 0; j < munitions.Length; j++)
                 {
+                   
                     if (munitions[j].Bounds.IntersectsWith(enemies[i].Bounds))
                     {
+                        score += 1;
+                        scoreLabel.Text = (score < 10) ? "SCORE: 0" + score.ToString() : "SCORE: " + score.ToString();
+
+                        if (score % 30 == 0)
+                        {
+                            level += 1;
+                            levelLabel.Text = (level < 10) ? "LEVEL: 0" + level.ToString() : "LEVEL: " + level.ToString();
+
+                            if (enemiesSpeed <= 10 && enemiesMunitionSpeed <=10 && difficulty >= 0)
+                            {
+                                difficulty--;
+                                enemiesSpeed++;
+                                enemiesMunitionSpeed++;
+                            }
+
+                            if(level == 10)
+                            {
+                                GameOver("You Won Star Battle!");
+                            }
+                        }
+
                         enemies[i].Location = new Point((i + 1) * 50, -100);
                     }
                     if(Player.Bounds.IntersectsWith(enemies[i].Bounds))
@@ -415,7 +459,7 @@ namespace JakubKazimierskiGame
 
         private void EnemiesMunitionTimer_Tick(object sender, EventArgs e)
         {
-            for (int i=0; i < enemiesMunitions.Length; i++)
+            for (int i=0; i < enemiesMunitions.Length - difficulty; i++)
             {
                 if(enemiesMunitions[i].Top < this.Height)
                 {
