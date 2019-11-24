@@ -376,6 +376,16 @@ namespace JakubKazimierskiGame
         /// <param name="str"></param>
         private void GameOver(String str)
         {
+            label1.Text = str;
+            label1.Location = new Point(this.Width / 2 - 120, 150);
+            label1.Visible = true;
+            
+            ReplayButton.Location = new Point(this.Width / 2 - 120, 250);
+            ReplayButton.Visible = true;
+
+            EndButton.Location = new Point(this.Width / 2 - 120, 350);
+            EndButton.Visible = true;
+            
             StopTimers();
         }
 
@@ -439,14 +449,18 @@ namespace JakubKazimierskiGame
 
         #endregion
 
+        #region Buttons methods
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Controls.Clear();
+            InitializeComponent();
+            Form1_Load(e, e);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Environment.Exit(1);
         }
+        #endregion
     }
 }
