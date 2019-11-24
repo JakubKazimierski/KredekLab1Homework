@@ -34,6 +34,12 @@ namespace JakubKazimierskiGame
         PictureBox[] enemiesMunitions;
         int enemiesMunitionSpeed;
 
+        int score;
+        int level;
+        int difficulty;
+        bool pause;
+        bool gameIsOver;
+
         #endregion
 
         public Form1()
@@ -57,7 +63,11 @@ namespace JakubKazimierskiGame
             MunitionSpeed = 20;
             enemiesSpeed = 4;
             enemiesMunitionSpeed = 4;
-            
+            difficulty = 9;
+            level = 1;
+            score = 0;
+            pause = false;
+            gameIsOver = false;
             #endregion
 
             #region Creating picture box object
@@ -230,14 +240,16 @@ namespace JakubKazimierskiGame
         /// <param name="e">The event object</param>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
-            if(e.KeyCode == Keys.Right)
+            if (!pause)
             {
-                RightTimer.Start();
-            }
-            if (e.KeyCode == Keys.Left)
-            {
-                LeftTimer.Start();
+                if (e.KeyCode == Keys.Right)
+                {
+                    RightTimer.Start();
+                }
+                if (e.KeyCode == Keys.Left)
+                {
+                    LeftTimer.Start();
+                }
             }
         }
 
@@ -250,6 +262,28 @@ namespace JakubKazimierskiGame
         {
             RightTimer.Stop();
             LeftTimer.Stop(); 
+            
+            if(e.KeyCode == Keys.Space)
+            {
+                if(!gameIsOver)
+                {
+                    if(pause)
+                    {
+                        StartTimers();
+                        label1.Visible = false;
+                        pause = false;
+                    }
+                    else
+                    {
+                        label1.Location = new Point(this.Width / 2 - 120, 150);
+                        label1.Text = "PAUSED";
+                        label1.Visible = true;
+                        StopTimers();
+                        pause = true;
+                    }
+                }
+            }
+        
         }
 
         #endregion
@@ -404,5 +438,15 @@ namespace JakubKazimierskiGame
         }
 
         #endregion
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

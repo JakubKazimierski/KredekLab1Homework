@@ -37,6 +37,9 @@
             this.MunitionTimer = new System.Windows.Forms.Timer(this.components);
             this.MoveEnemiesTimer = new System.Windows.Forms.Timer(this.components);
             this.EnemiesMunitionTimer = new System.Windows.Forms.Timer(this.components);
+            this.EndButton = new System.Windows.Forms.Button();
+            this.ReplayButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,12 +87,52 @@
             this.EnemiesMunitionTimer.Interval = 20;
             this.EnemiesMunitionTimer.Tick += new System.EventHandler(this.EnemiesMunitionTimer_Tick);
             // 
+            // EndButton
+            // 
+            this.EndButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EndButton.Location = new System.Drawing.Point(225, 279);
+            this.EndButton.Name = "EndButton";
+            this.EndButton.Size = new System.Drawing.Size(210, 43);
+            this.EndButton.TabIndex = 1;
+            this.EndButton.Text = "End";
+            this.EndButton.UseVisualStyleBackColor = true;
+            this.EndButton.Visible = false;
+            this.EndButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ReplayButton
+            // 
+            this.ReplayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ReplayButton.Location = new System.Drawing.Point(225, 205);
+            this.ReplayButton.Name = "ReplayButton";
+            this.ReplayButton.Size = new System.Drawing.Size(210, 43);
+            this.ReplayButton.TabIndex = 2;
+            this.ReplayButton.Text = "Replay";
+            this.ReplayButton.UseVisualStyleBackColor = true;
+            this.ReplayButton.Visible = false;
+            this.ReplayButton.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.InfoText;
+            this.label1.Font = new System.Drawing.Font("Impact", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label1.Location = new System.Drawing.Point(222, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 43);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "StarBattle";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InfoText;
             this.ClientSize = new System.Drawing.Size(639, 515);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ReplayButton);
+            this.Controls.Add(this.EndButton);
             this.Controls.Add(this.Player);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(655, 553);
@@ -113,6 +156,9 @@
         private System.Windows.Forms.Timer MunitionTimer;
         private System.Windows.Forms.Timer MoveEnemiesTimer;
         private System.Windows.Forms.Timer EnemiesMunitionTimer;
+        private System.Windows.Forms.Button EndButton;
+        private System.Windows.Forms.Button ReplayButton;
+        private System.Windows.Forms.Label label1;
     }
 }
 
