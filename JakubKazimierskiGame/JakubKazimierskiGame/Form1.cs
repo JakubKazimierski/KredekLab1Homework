@@ -434,7 +434,7 @@ namespace JakubKazimierskiGame
                                     SpeedLvlLabel.Text = (speedLvl < 10) ? "SPEED: 0" + speedLvl.ToString() : "SPEED: " + speedLvl.ToString();
                                 }
                             }
-                            if (money % 30 == 0)
+                            if (money % 20 == 0)
                             {
                                 bullets += 1;
                                 if (bullets <= 3)

@@ -169,11 +169,11 @@
             this.BulletsLabel.BackColor = System.Drawing.Color.Transparent;
             this.BulletsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.BulletsLabel.ForeColor = System.Drawing.Color.Silver;
-            this.BulletsLabel.Location = new System.Drawing.Point(527, 123);
+            this.BulletsLabel.Location = new System.Drawing.Point(512, 123);
             this.BulletsLabel.Name = "BulletsLabel";
-            this.BulletsLabel.Size = new System.Drawing.Size(93, 23);
+            this.BulletsLabel.Size = new System.Drawing.Size(108, 23);
             this.BulletsLabel.TabIndex = 7;
-            this.BulletsLabel.Text = "BULLETS: 0";
+            this.BulletsLabel.Text = "BULLETS: 1";
             this.BulletsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SpeedLvlLabel
@@ -185,7 +185,7 @@
             this.SpeedLvlLabel.Name = "SpeedLvlLabel";
             this.SpeedLvlLabel.Size = new System.Drawing.Size(94, 23);
             this.SpeedLvlLabel.TabIndex = 8;
-            this.SpeedLvlLabel.Text = "SPEED LVL: 0";
+            this.SpeedLvlLabel.Text = "SPEED LVL: 1";
             this.SpeedLvlLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
