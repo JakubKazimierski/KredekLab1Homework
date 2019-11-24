@@ -299,9 +299,28 @@ namespace JakubKazimierskiGame
                     if(Player.Bounds.IntersectsWith(enemies[i].Bounds))
                     {
                         Player.Visible = false;
+                        GameOver("");
                     }
                 }            
             }
+        }
+
+        private void GameOver(String str)
+        {
+            StopTimers();
+        }
+
+        private void StopTimers()
+        {
+            MoveBackground.Stop();
+            MoveEnemiesTimer.Stop();
+            MunitionTimer.Stop();
+        }
+        private void StartTimers()
+        {
+            MoveBackground.Start();
+            MoveEnemiesTimer.Start();
+            MunitionTimer.Start();
         }
     }
 }
