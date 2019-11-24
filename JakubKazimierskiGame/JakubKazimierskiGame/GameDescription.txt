@@ -5,4 +5,4 @@ is to shoot as many spaceships as possible to get high score,
 and thanks to that higher level, which is more difficult than 
 previous one. Also thanks to high score you will get money,
 for special amount of money your speed is improved, and also 
-with more amount of money, your shooting is improved. Game conains 10 levels. 
+with more amount of money, your shooting is improved. Game conains 10 levels. Good luck.
