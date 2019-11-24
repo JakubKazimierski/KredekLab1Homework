@@ -116,7 +116,7 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.InfoText;
             this.label1.Font = new System.Drawing.Font("Impact", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(222, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 43);
@@ -127,16 +127,18 @@
             // 
             // scoreLabel
             // 
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.scoreLabel.ForeColor = System.Drawing.Color.Silver;
-            this.scoreLabel.Location = new System.Drawing.Point(567, 18);
+            this.scoreLabel.Location = new System.Drawing.Point(560, 18);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(60, 33);
+            this.scoreLabel.Size = new System.Drawing.Size(67, 33);
             this.scoreLabel.TabIndex = 4;
             this.scoreLabel.Text = "SCORE: 0";
             this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // levelLabel
             // 
+            this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.levelLabel.ForeColor = System.Drawing.Color.Silver;
             this.levelLabel.Location = new System.Drawing.Point(567, 51);
             this.levelLabel.Name = "levelLabel";

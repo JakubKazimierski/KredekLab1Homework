@@ -153,12 +153,12 @@ namespace JakubKazimierskiGame
             //load enemies img from file
             #region Images of enemies
 
-            Image enemi1 = Image.FromFile("images\\E3.png");
-            Image enemi2 = Image.FromFile("images\\E3.png");
+            Image enemi1 = Image.FromFile("images\\E1.png");
+            Image enemi2 = Image.FromFile("images\\E2.png");
             Image enemi3 = Image.FromFile("images\\E3.png");
 
-            Image boss1 = Image.FromFile("images\\E3.png");
-            Image boss2 = Image.FromFile("images\\E3.png");
+            Image boss1 = Image.FromFile("images\\Boss1.png");
+            Image boss2 = Image.FromFile("images\\Boss2.png");
 
 
             //create enemies img
@@ -297,8 +297,8 @@ namespace JakubKazimierskiGame
             //end fire
             if (e.KeyCode == Keys.S)
             {
-                MunitionTimer.Stop();
 
+                MunitionTimer.Stop();
                 for (int i = 0; i < munitions.Length; i++)
                 {
                     
@@ -363,6 +363,7 @@ namespace JakubKazimierskiGame
         /// <param name="e"></param>
         private void MoveEnemiesTimer_Tick(object sender, EventArgs e)
         {
+            Collision();
             MoveEnemies(enemies, enemiesSpeed);
         }
         #endregion
@@ -403,12 +404,14 @@ namespace JakubKazimierskiGame
 
                         enemies[i].Location = new Point((i + 1) * 50, -100);
                     }
-                    if(Player.Bounds.IntersectsWith(enemies[i].Bounds))
-                    {
-                        Player.Visible = false;
-                        GameOver("");
-                    }
-                }            
+                    
+                }
+                if (Player.Bounds.IntersectsWith(enemies[i].Bounds))
+                {
+                    Player.Visible = false;
+                    GameOver("GAME OVER");
+                }
+
             }
         }
 
@@ -496,9 +499,12 @@ namespace JakubKazimierskiGame
         #region Buttons methods
         private void button2_Click(object sender, EventArgs e)
         {
+            
             this.Controls.Clear();
             InitializeComponent();
             Form1_Load(e, e);
+            StopTimers();
+            StartTimers();
         }
 
         private void button1_Click(object sender, EventArgs e)
