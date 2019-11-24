@@ -17,7 +17,7 @@ namespace JakubKazimierskiGame
 
 
         #region Variables
-        Random rand;
+        Random rand; //variable to create random positions 
 
         PictureBox[] stars;
         int backgroundSpeed;
@@ -60,7 +60,7 @@ namespace JakubKazimierskiGame
         private void Form1_Load(object sender, EventArgs e)
         {
             #region creating variables object
-            
+            //assigmnet of values to variables
             backgroundSpeed = 4;
             playerSpeed = 4;
             MunitionSpeed = 20;
@@ -74,14 +74,13 @@ namespace JakubKazimierskiGame
             bullets = 1;
             pause = false;
             gameIsOver = false;
+            rand = new Random();
             #endregion
 
-            #region Creating picture box object
-            
+            #region Creating picture  objects
+
             stars = new PictureBox[15];
-            
-            rand = new Random();
-            
+                              
             munitions = new PictureBox[1];
 
             enemies = new PictureBox[10];
@@ -126,10 +125,9 @@ namespace JakubKazimierskiGame
 
                 this.Controls.Add(stars[i]);
 
-
-
             }
         
+            //creating enemies positions
             for (int i = 0; i < enemies.Length; i++)
             {
                 enemies[i] = new PictureBox();
@@ -142,7 +140,7 @@ namespace JakubKazimierskiGame
                 this.Controls.Add(enemies[i]);
             }
 
-
+            //creating postions of enemies bullets
             for (int i = 0; i < enemiesMunitions.Length; i++)
             {
 
@@ -158,7 +156,7 @@ namespace JakubKazimierskiGame
             #endregion
             //load enemies img from file
             #region Images of enemies
-
+            //methods to load pictures of enemies
             Image enemi1 = Image.FromFile("images\\E1.png");
             Image enemi2 = Image.FromFile("images\\E2.png");
             Image enemi3 = Image.FromFile("images\\E3.png");
@@ -181,7 +179,11 @@ namespace JakubKazimierskiGame
             #endregion
 
         }
-
+        /// <summary>
+        /// Method of timer, which is responsible for moving background
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MoveBackground_Tick(object sender, EventArgs e)
         {
             //rendering stars depending from timer
@@ -212,7 +214,7 @@ namespace JakubKazimierskiGame
         #region Moving Player Methods
         
         /// <summary>
-        /// Timer init moving left
+        /// Timer responsible for moving left
         /// </summary>
         /// <param name="sender">The event sender</param>
         /// <param name="e">The event object</param>
@@ -226,7 +228,7 @@ namespace JakubKazimierskiGame
         }
 
         /// <summary>
-        /// Timer init of moving rigth
+        /// Timer responsible for moving right
         /// </summary>
         /// <param name="sender">The event sender</param>
         /// <param name="e">The event object</param>
@@ -240,7 +242,7 @@ namespace JakubKazimierskiGame
         }
 
         /// <summary>
-        /// Start moving
+        /// Method responsible for start moving
         /// </summary>
         /// <param name="sender">The event sender</param>
         /// <param name="e">The event object</param>
@@ -279,7 +281,7 @@ namespace JakubKazimierskiGame
         }
 
         /// <summary>
-        /// Stop moving
+        ///Method responsible for stop moving
         /// </summary>
         /// <param name="sender">The even sender</param>
         /// <param name="e">The event object</param>
@@ -288,7 +290,7 @@ namespace JakubKazimierskiGame
             RightTimer.Stop();
             LeftTimer.Stop();
 
-
+            //pause the game
             if (e.KeyCode == Keys.Space)
             {
                 if (!gameIsOver)
@@ -327,6 +329,12 @@ namespace JakubKazimierskiGame
         #endregion
 
         #region Shooting method
+    
+        /// <summary>
+        /// Method of timer, which is responsible for moving player ammo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MunitionTimer_Tick(object sender, EventArgs e)
         {
            
@@ -350,7 +358,7 @@ namespace JakubKazimierskiGame
 
         #region Moving enemies methods
         /// <summary>
-        /// Create enemies method to move
+        /// Method responsible for rendering enemies 
         /// </summary>
         /// <param name="array"></param>
         /// <param name="speed"></param>
@@ -374,7 +382,7 @@ namespace JakubKazimierskiGame
         }
         
         /// <summary>
-        /// Create enemies timer to move
+        /// Method based on timer intervals responsible for moving enemies, also contains method responsible for collisions of object like bullets and ships
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -387,7 +395,7 @@ namespace JakubKazimierskiGame
 
         #region collisions methods
         /// <summary>
-        /// Collision detector
+        /// Collision detector, detect bullets collisions with ships, and also ships collision to each other
         /// </summary>
         private void Collision()
         {
@@ -395,7 +403,7 @@ namespace JakubKazimierskiGame
             {
                 for (int j = 0; j < munitions.Length; j++)
                 {
-                   
+                   //logic of increasing values : level, money, score, bullet, speed
                     if (munitions[j].Bounds.IntersectsWith(enemies[i].Bounds))
                     {
                         score += 1;
@@ -444,6 +452,7 @@ namespace JakubKazimierskiGame
                                 }
                             }
                         }
+                        //rendering enemies after collision
                         enemies[i].Location = new Point((i + 1) * 50, -100);
                     }
                     
@@ -460,7 +469,7 @@ namespace JakubKazimierskiGame
         #region Timers on/off Methods
 
         /// <summary>
-        /// Stop game
+        /// Stop game means stopping each timer, and also display on screen text and buttons
         /// </summary>
         /// <param name="str"></param>
         private void GameOver(String str)
@@ -479,7 +488,7 @@ namespace JakubKazimierskiGame
         }
 
         /// <summary>
-        /// stop timers
+        /// stop timers method, timers are responsible for rendering graphic
         /// </summary>
         private void StopTimers()
         {
@@ -490,7 +499,7 @@ namespace JakubKazimierskiGame
         }
         
         /// <summary>
-        /// start timers
+        /// start timers method
         /// </summary>
         private void StartTimers()
         {
@@ -502,8 +511,14 @@ namespace JakubKazimierskiGame
         
         #endregion
 
+        /// <summary>
+        /// method responsible for rendering enemies ammo, method based on timer, and connected with collisions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnemiesMunitionTimer_Tick(object sender, EventArgs e)
         {
+            //with next levels, difficulty decrease itself, but it cause more bullets from enemies, so it is improving of difficulty in game
             for (int i=0; i < enemiesMunitions.Length - difficulty; i++)
             {
                 if(enemiesMunitions[i].Top < this.Height)
@@ -521,6 +536,9 @@ namespace JakubKazimierskiGame
             EnemiesMunitionCollision();
         }
     
+        /// <summary>
+        /// method responsible for collision enemies ammo with player ship
+        /// </summary>
         private void EnemiesMunitionCollision()
         {
             for(int i = 0; i< enemiesMunitions.Length; i++)
@@ -539,6 +557,12 @@ namespace JakubKazimierskiGame
         #endregion
 
         #region Buttons methods
+        
+        /// <summary>
+        /// method responsible for using replay button, program didn't render proper name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             
@@ -548,7 +572,11 @@ namespace JakubKazimierskiGame
             StopTimers();
             StartTimers();
         }
-
+        /// <summary>
+        /// method responsible for using end button, program didn't render proper name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
