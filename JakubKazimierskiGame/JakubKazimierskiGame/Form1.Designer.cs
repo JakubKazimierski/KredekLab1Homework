@@ -36,6 +36,7 @@
             this.RightTimer = new System.Windows.Forms.Timer(this.components);
             this.MunitionTimer = new System.Windows.Forms.Timer(this.components);
             this.MoveEnemiesTimer = new System.Windows.Forms.Timer(this.components);
+            this.EnemiesMunitionTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +78,12 @@
             this.MoveEnemiesTimer.Enabled = true;
             this.MoveEnemiesTimer.Tick += new System.EventHandler(this.MoveEnemiesTimer_Tick);
             // 
+            // EnemiesMunitionTimer
+            // 
+            this.EnemiesMunitionTimer.Enabled = true;
+            this.EnemiesMunitionTimer.Interval = 20;
+            this.EnemiesMunitionTimer.Tick += new System.EventHandler(this.EnemiesMunitionTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -105,6 +112,7 @@
         private System.Windows.Forms.Timer RightTimer;
         private System.Windows.Forms.Timer MunitionTimer;
         private System.Windows.Forms.Timer MoveEnemiesTimer;
+        private System.Windows.Forms.Timer EnemiesMunitionTimer;
     }
 }
 

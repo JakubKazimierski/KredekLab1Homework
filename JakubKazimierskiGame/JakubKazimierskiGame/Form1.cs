@@ -31,6 +31,9 @@ namespace JakubKazimierskiGame
         int enemiesSpeed;
 
 
+        PictureBox[] enemiesMunitions;
+        int enemiesMunitionSpeed;
+
         #endregion
 
         public Form1()
@@ -47,11 +50,18 @@ namespace JakubKazimierskiGame
         /// <param name="e">The event object</param>
         private void Form1_Load(object sender, EventArgs e)
         {
+            #region creating variables object
+            
             backgroundSpeed = 4;
             playerSpeed = 4;
             MunitionSpeed = 20;
             enemiesSpeed = 4;
+            enemiesMunitionSpeed = 4;
+            
+            #endregion
 
+            #region Creating picture box object
+            
             stars = new PictureBox[15];
             
             rand = new Random();
@@ -59,6 +69,10 @@ namespace JakubKazimierskiGame
             munitions = new PictureBox[2];
 
             enemies = new PictureBox[10];
+
+            enemiesMunitions = new PictureBox[10];
+
+            #endregion
 
             #region Rendering Images loops
             //rendering ammo
@@ -112,6 +126,19 @@ namespace JakubKazimierskiGame
                 this.Controls.Add(enemies[i]);
             }
 
+
+            for (int i = 0; i < enemiesMunitions.Length; i++)
+            {
+
+                enemiesMunitions[i] = new PictureBox();
+                enemiesMunitions[i].Size = new Size(2, 25);
+                enemiesMunitions[i].BackColor = Color.Magenta;
+                enemiesMunitions[i].Visible = false;
+                int x = rand.Next(0, 10);
+                enemiesMunitions[i].Location = new Point(enemies[x].Location.X, enemies[x].Location.Y - 20);
+                this.Controls.Add(enemiesMunitions[i]);
+            }
+
             #endregion
             //load enemies img from file
             #region Images of enemies
@@ -136,6 +163,7 @@ namespace JakubKazimierskiGame
                enemies[8].Image = enemi2;
                enemies[9].Image = boss2;
             #endregion
+
         }
 
         private void MoveBackground_Tick(object sender, EventArgs e)
@@ -283,6 +311,7 @@ namespace JakubKazimierskiGame
         }
         #endregion
 
+        #region collisions methods
         /// <summary>
         /// Collision detector
         /// </summary>
@@ -305,22 +334,75 @@ namespace JakubKazimierskiGame
             }
         }
 
+        #region Timers on/off Methods
+
+        /// <summary>
+        /// Stop game
+        /// </summary>
+        /// <param name="str"></param>
         private void GameOver(String str)
         {
             StopTimers();
         }
 
+        /// <summary>
+        /// stop timers
+        /// </summary>
         private void StopTimers()
         {
             MoveBackground.Stop();
             MoveEnemiesTimer.Stop();
             MunitionTimer.Stop();
+            EnemiesMunitionTimer.Stop();
         }
+        
+        /// <summary>
+        /// start timers
+        /// </summary>
         private void StartTimers()
         {
             MoveBackground.Start();
             MoveEnemiesTimer.Start();
             MunitionTimer.Start();
+            EnemiesMunitionTimer.Start();
         }
+        
+        #endregion
+
+        private void EnemiesMunitionTimer_Tick(object sender, EventArgs e)
+        {
+            for (int i=0; i < enemiesMunitions.Length; i++)
+            {
+                if(enemiesMunitions[i].Top < this.Height)
+                {
+                    enemiesMunitions[i].Visible = true;
+                    enemiesMunitions[i].Top += enemiesMunitionSpeed; 
+                }
+                else
+                {
+                    enemiesMunitions[i].Visible = false;
+                    int x = rand.Next(0, 10);
+                    enemiesMunitions[i].Location = new Point(enemies[x].Location.X + 20, enemies[x].Location.Y + 30);
+                }
+            }
+            EnemiesMunitionCollision();
+        }
+    
+        private void EnemiesMunitionCollision()
+        {
+            for(int i = 0; i< enemiesMunitions.Length; i++)
+            {
+                if(enemiesMunitions[i].Bounds.IntersectsWith(Player.Bounds))
+                {
+                    enemiesMunitions[i].Visible = false;
+                    Player.Visible = false;
+                    GameOver("Game Over");
+
+                }
+            }
+
+        }
+
+        #endregion
     }
 }
