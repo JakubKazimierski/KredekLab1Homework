@@ -42,6 +42,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.levelLabel = new System.Windows.Forms.Label();
+            this.MoneyLabel = new System.Windows.Forms.Label();
+            this.BulletsLabel = new System.Windows.Forms.Label();
+            this.SpeedLvlLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +77,7 @@
             // 
             // MunitionTimer
             // 
-            this.MunitionTimer.Interval = 1;
+            this.MunitionTimer.Interval = 31;
             this.MunitionTimer.Tick += new System.EventHandler(this.MunitionTimer_Tick);
             // 
             // MoveEnemiesTimer
@@ -127,25 +130,63 @@
             // 
             // scoreLabel
             // 
+            this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.scoreLabel.ForeColor = System.Drawing.Color.Silver;
-            this.scoreLabel.Location = new System.Drawing.Point(560, 18);
+            this.scoreLabel.Location = new System.Drawing.Point(530, 9);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(67, 33);
+            this.scoreLabel.Size = new System.Drawing.Size(94, 33);
             this.scoreLabel.TabIndex = 4;
             this.scoreLabel.Text = "SCORE: 0";
             this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // levelLabel
             // 
+            this.levelLabel.BackColor = System.Drawing.Color.Transparent;
             this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.levelLabel.ForeColor = System.Drawing.Color.Silver;
-            this.levelLabel.Location = new System.Drawing.Point(567, 51);
+            this.levelLabel.Location = new System.Drawing.Point(530, 51);
             this.levelLabel.Name = "levelLabel";
-            this.levelLabel.Size = new System.Drawing.Size(60, 23);
+            this.levelLabel.Size = new System.Drawing.Size(90, 23);
             this.levelLabel.TabIndex = 5;
             this.levelLabel.Text = "LEVEL: 0";
             this.levelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MoneyLabel
+            // 
+            this.MoneyLabel.BackColor = System.Drawing.Color.Transparent;
+            this.MoneyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.MoneyLabel.ForeColor = System.Drawing.Color.Silver;
+            this.MoneyLabel.Location = new System.Drawing.Point(524, 89);
+            this.MoneyLabel.Name = "MoneyLabel";
+            this.MoneyLabel.Size = new System.Drawing.Size(96, 23);
+            this.MoneyLabel.TabIndex = 6;
+            this.MoneyLabel.Text = "MONEY: 0";
+            this.MoneyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BulletsLabel
+            // 
+            this.BulletsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.BulletsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.BulletsLabel.ForeColor = System.Drawing.Color.Silver;
+            this.BulletsLabel.Location = new System.Drawing.Point(527, 123);
+            this.BulletsLabel.Name = "BulletsLabel";
+            this.BulletsLabel.Size = new System.Drawing.Size(93, 23);
+            this.BulletsLabel.TabIndex = 7;
+            this.BulletsLabel.Text = "BULLETS: 0";
+            this.BulletsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SpeedLvlLabel
+            // 
+            this.SpeedLvlLabel.BackColor = System.Drawing.Color.Transparent;
+            this.SpeedLvlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SpeedLvlLabel.ForeColor = System.Drawing.Color.Silver;
+            this.SpeedLvlLabel.Location = new System.Drawing.Point(526, 155);
+            this.SpeedLvlLabel.Name = "SpeedLvlLabel";
+            this.SpeedLvlLabel.Size = new System.Drawing.Size(94, 23);
+            this.SpeedLvlLabel.TabIndex = 8;
+            this.SpeedLvlLabel.Text = "SPEED LVL: 0";
+            this.SpeedLvlLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -153,6 +194,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InfoText;
             this.ClientSize = new System.Drawing.Size(639, 515);
+            this.Controls.Add(this.SpeedLvlLabel);
+            this.Controls.Add(this.BulletsLabel);
+            this.Controls.Add(this.MoneyLabel);
             this.Controls.Add(this.levelLabel);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.label1);
@@ -186,6 +230,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label levelLabel;
+        private System.Windows.Forms.Label MoneyLabel;
+        private System.Windows.Forms.Label BulletsLabel;
+        private System.Windows.Forms.Label SpeedLvlLabel;
     }
 }
 

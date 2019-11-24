@@ -37,6 +37,9 @@ namespace JakubKazimierskiGame
         int score;
         int level;
         int difficulty;
+        int money;
+        int speedLvl;
+        int bullets;
         bool pause;
         bool gameIsOver;
 
@@ -66,6 +69,9 @@ namespace JakubKazimierskiGame
             difficulty = 9;
             level = 1;
             score = 0;
+            money = 0;
+            speedLvl = 1;
+            bullets = 1;
             pause = false;
             gameIsOver = false;
             #endregion
@@ -76,7 +82,7 @@ namespace JakubKazimierskiGame
             
             rand = new Random();
             
-            munitions = new PictureBox[2];
+            munitions = new PictureBox[1];
 
             enemies = new PictureBox[10];
 
@@ -244,18 +250,28 @@ namespace JakubKazimierskiGame
             {
                 if (e.KeyCode == Keys.Right)
                 {
+                    if( speedLvl < 5)//improve speed
+                    {
+                        RightTimer.Interval = 5 - speedLvl;
+                    }
                     RightTimer.Start();
                 }
                 if (e.KeyCode == Keys.Left)
                 {
+                    if (speedLvl < 5)//imporve speed 
+                    {
+                        LeftTimer.Interval = 5 - speedLvl;
+                    }
                     LeftTimer.Start();
                 }
 
                 //start fire
                 if (e.KeyCode == Keys.A)
                 {
-                    
-                   
+                    if (bullets <= 3) //more bullets, more intervals of shooting
+                    {
+                        MunitionTimer.Interval = 31 - 10 * bullets;
+                    }
                     MunitionTimer.Start();
                     
                 }
@@ -313,6 +329,7 @@ namespace JakubKazimierskiGame
         #region Shooting method
         private void MunitionTimer_Tick(object sender, EventArgs e)
         {
+           
             for (int i = 0; i < munitions.Length; i++)
             {
                 if (munitions[i].Top > 0)
@@ -401,7 +418,32 @@ namespace JakubKazimierskiGame
                                 GameOver("You Won Star Battle!");
                             }
                         }
+                        if (score % 5 == 0)
+                        {
+                            money += 1;
+                            MoneyLabel.Text = (money < 10) ? "MONEY: 0" + money.ToString() : "MONEY: " + money.ToString();
 
+
+
+
+                            if (money % 5 == 0)
+                            {
+                                speedLvl += 1;
+                                if (speedLvl < 5)
+                                {
+                                    SpeedLvlLabel.Text = (speedLvl < 10) ? "SPEED: 0" + speedLvl.ToString() : "SPEED: " + speedLvl.ToString();
+                                }
+                            }
+                            if (money % 30 == 0)
+                            {
+                                bullets += 1;
+                                if (bullets <= 3)
+                                {
+
+                                    BulletsLabel.Text = (bullets < 10) ? "BULLETS: 0" + bullets.ToString() : "BULLETS: " + bullets.ToString();
+                                }
+                            }
+                        }
                         enemies[i].Location = new Point((i + 1) * 50, -100);
                     }
                     
