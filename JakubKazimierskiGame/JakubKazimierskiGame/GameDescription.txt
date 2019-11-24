@@ -1,0 +1,8 @@
+Game title is StarBattle. To play use arrows <- to move left,
+-> to move rigth. To shoot press "a" key, to stop shooting,
+press "s" key. To pause game use "space" key. Your mission
+is to shoot as many spaceships as possible to get high score,
+and thanks to that higher level, which is more difficult than 
+previous one. Also thanks to high score you will get money,
+for special amount of money your speed is improved, and also 
+with more amount of money, your shooting is improved. Game conains 10 levels. 
