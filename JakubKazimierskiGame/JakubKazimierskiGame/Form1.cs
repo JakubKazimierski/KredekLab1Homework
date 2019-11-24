@@ -59,9 +59,10 @@ namespace JakubKazimierskiGame
             munitions = new PictureBox[2];
 
             enemies = new PictureBox[10];
-            
+
+            #region Rendering Images loops
             //rendering ammo
-            for(int i = 0; i<munitions.Length; i++ )
+            for (int i = 0; i<munitions.Length; i++ )
             {
 
                 munitions[i] = new PictureBox();
@@ -111,7 +112,9 @@ namespace JakubKazimierskiGame
                 this.Controls.Add(enemies[i]);
             }
 
+            #endregion
             //load enemies img from file
+            #region Images of enemies
 
             Image enemi1 = Image.FromFile("images\\E3.png");
             Image enemi2 = Image.FromFile("images\\E3.png");
@@ -132,7 +135,7 @@ namespace JakubKazimierskiGame
                enemies[7].Image = enemi3;
                enemies[8].Image = enemi2;
                enemies[9].Image = boss2;
-              
+            #endregion
         }
 
         private void MoveBackground_Tick(object sender, EventArgs e)
@@ -232,6 +235,7 @@ namespace JakubKazimierskiGame
                 {
                     munitions[i].Visible = true;
                     munitions[i].Top -= MunitionSpeed;
+                    Collision();
                 }
                 else
                 {
@@ -243,7 +247,7 @@ namespace JakubKazimierskiGame
 
         #endregion
 
-       
+        #region Moving enemies methods
         /// <summary>
         /// Create enemies method to move
         /// </summary>
@@ -276,6 +280,28 @@ namespace JakubKazimierskiGame
         private void MoveEnemiesTimer_Tick(object sender, EventArgs e)
         {
             MoveEnemies(enemies, enemiesSpeed);
+        }
+        #endregion
+
+        /// <summary>
+        /// Collision detector
+        /// </summary>
+        private void Collision()
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                for (int j = 0; j < munitions.Length; j++)
+                {
+                    if (munitions[j].Bounds.IntersectsWith(enemies[i].Bounds))
+                    {
+                        enemies[i].Location = new Point((i + 1) * 50, -100);
+                    }
+                    if(Player.Bounds.IntersectsWith(enemies[i].Bounds))
+                    {
+                        Player.Visible = false;
+                    }
+                }            
+            }
         }
     }
 }
