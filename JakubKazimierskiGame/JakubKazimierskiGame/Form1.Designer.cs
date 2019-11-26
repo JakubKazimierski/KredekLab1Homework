@@ -57,7 +57,7 @@
             // Player
             // 
             this.Player.BackColor = System.Drawing.Color.Transparent;
-            this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
+            this.Player.Image = global::JakubKazimierskiGame.Properties.Resources.Spaceship_PNG_File___Kopia;
             this.Player.Location = new System.Drawing.Point(298, 453);
             this.Player.Name = "Player";
             this.Player.Size = new System.Drawing.Size(50, 50);
