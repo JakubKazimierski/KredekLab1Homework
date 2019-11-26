@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\E1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\Boss1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\Boss2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\E1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\E2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\E3 - Kopia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\player - Kopia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\rocketShip - Kopia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\Spaceship-PNG-File - Kopia.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

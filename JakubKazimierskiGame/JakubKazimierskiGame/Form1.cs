@@ -11,6 +11,7 @@ using System.Net;
 using System.IO;
 
 
+
 namespace JakubKazimierskiGame
 {
     public partial class Form1 : Form
@@ -162,16 +163,17 @@ namespace JakubKazimierskiGame
             //methods to load pictures of enemies
             
            
-            Image enemi1 = Image.FromFile(@"images\\E1.png");
-            Image enemi2 = Image.FromFile(@"images\\E2.png");
-            Image enemi3 = Image.FromFile(@"images\\E3.png");
+           // Image enemi1 = Image.FromFile(@"images\\E1.png");
+           
+            Image enemi1 = JakubKazimierskiGame.Properties.Resources.E1;
+            Image enemi2 = JakubKazimierskiGame.Properties.Resources.E2;
+            Image enemi3 = JakubKazimierskiGame.Properties.Resources.E3___Kopia;
 
-            Image boss1 = Image.FromFile(@"images\\Boss1.png");
-            Image boss2 = Image.FromFile(@"images\\Boss2.png");
-
+            Image boss1 = JakubKazimierskiGame.Properties.Resources.Boss1;
+            Image boss2 = JakubKazimierskiGame.Properties.Resources.Boss2;
 
             //create enemies img
-               enemies[0].Image = boss1;
+            enemies[0].Image = boss1;
                enemies[1].Image = enemi3;
                enemies[2].Image = enemi2;
                enemies[3].Image = enemi3;
