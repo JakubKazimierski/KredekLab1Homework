@@ -22,7 +22,7 @@ namespace JakubKazimierskiGame.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace JakubKazimierskiGame.Properties {
         /// Zwraca buforowane wystąpienie ResourceManager używane przez tę klasę.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("JakubKazimierskiGame.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace JakubKazimierskiGame.Properties {
         ///   przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace JakubKazimierskiGame.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Boss1 {
+        public static System.Drawing.Bitmap Boss1 {
             get {
                 object obj = ResourceManager.GetObject("Boss1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace JakubKazimierskiGame.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Boss2 {
+        public static System.Drawing.Bitmap Boss2 {
             get {
                 object obj = ResourceManager.GetObject("Boss2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace JakubKazimierskiGame.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap E1 {
+        public static System.Drawing.Bitmap E1 {
             get {
                 object obj = ResourceManager.GetObject("E1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace JakubKazimierskiGame.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap E2 {
+        public static System.Drawing.Bitmap E2 {
             get {
                 object obj = ResourceManager.GetObject("E2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace JakubKazimierskiGame.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap E3___Kopia {
+        public static System.Drawing.Bitmap E3___Kopia {
             get {
                 object obj = ResourceManager.GetObject("E3___Kopia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace JakubKazimierskiGame.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player___Kopia {
+        public static System.Drawing.Bitmap player___Kopia {
             get {
                 object obj = ResourceManager.GetObject("player___Kopia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace JakubKazimierskiGame.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rocketShip___Kopia {
+        public static System.Drawing.Bitmap rocketShip___Kopia {
             get {
                 object obj = ResourceManager.GetObject("rocketShip___Kopia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace JakubKazimierskiGame.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Spaceship_PNG_File___Kopia {
+        public static System.Drawing.Bitmap Spaceship_PNG_File___Kopia {
             get {
                 object obj = ResourceManager.GetObject("Spaceship_PNG_File___Kopia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
