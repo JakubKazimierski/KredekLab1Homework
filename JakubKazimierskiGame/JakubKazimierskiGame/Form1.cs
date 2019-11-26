@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.IO;
+
 
 namespace JakubKazimierskiGame
 {
@@ -157,6 +160,11 @@ namespace JakubKazimierskiGame
             //load enemies img from file
             #region Images of enemies
             //methods to load pictures of enemies
+            /* web client do pobrania url obrazow
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData("http://localhost/image.gif");
+            MemoryStream ms = new MemoryStream(bytes);
+            */
             Image enemi1 = Image.FromFile("images\\E1.png");
             Image enemi2 = Image.FromFile("images\\E2.png");
             Image enemi3 = Image.FromFile("images\\E3.png");
