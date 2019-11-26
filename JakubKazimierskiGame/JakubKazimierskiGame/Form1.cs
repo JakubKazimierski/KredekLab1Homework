@@ -162,12 +162,12 @@ namespace JakubKazimierskiGame
             //methods to load pictures of enemies
             
            
-            Image enemi1 = Image.FromFile("./images\\E1.png");
-            Image enemi2 = Image.FromFile("./images\\E2.png");
-            Image enemi3 = Image.FromFile("./images\\E3.png");
+            Image enemi1 = Image.FromFile(@"./images\\E1.png");
+            Image enemi2 = Image.FromFile(@"./images\\E2.png");
+            Image enemi3 = Image.FromFile(@"./images\\E3.png");
 
-            Image boss1 = Image.FromFile("./images\\Boss1.png");
-            Image boss2 = Image.FromFile("./images\\Boss2.png");
+            Image boss1 = Image.FromFile(@"./images\\Boss1.png");
+            Image boss2 = Image.FromFile(@"./images\\Boss2.png");
 
 
             //create enemies img
@@ -498,6 +498,8 @@ namespace JakubKazimierskiGame
         private void StopTimers()
         {
             MoveBackground.Stop();
+            RightTimer.Stop();
+            LeftTimer.Stop();
             MoveEnemiesTimer.Stop();
             MunitionTimer.Stop();
             EnemiesMunitionTimer.Stop();
@@ -509,6 +511,8 @@ namespace JakubKazimierskiGame
         private void StartTimers()
         {
             MoveBackground.Start();
+            RightTimer.Start();
+            LeftTimer.Start();
             MoveEnemiesTimer.Start();
             MunitionTimer.Start();
             EnemiesMunitionTimer.Start();
