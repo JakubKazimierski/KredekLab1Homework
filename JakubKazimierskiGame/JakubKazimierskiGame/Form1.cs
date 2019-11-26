@@ -160,17 +160,14 @@ namespace JakubKazimierskiGame
             //load enemies img from file
             #region Images of enemies
             //methods to load pictures of enemies
-            /* web client do pobrania url obrazow
-            WebClient wc = new WebClient();
-            byte[] bytes = wc.DownloadData("http://localhost/image.gif");
-            MemoryStream ms = new MemoryStream(bytes);
-            */
-            Image enemi1 = Image.FromFile("images\\E1.png");
-            Image enemi2 = Image.FromFile("images\\E2.png");
-            Image enemi3 = Image.FromFile("images\\E3.png");
+            
+           
+            Image enemi1 = Image.FromFile("./images\\E1.png");
+            Image enemi2 = Image.FromFile("./images\\E2.png");
+            Image enemi3 = Image.FromFile("./images\\E3.png");
 
-            Image boss1 = Image.FromFile("images\\Boss1.png");
-            Image boss2 = Image.FromFile("images\\Boss2.png");
+            Image boss1 = Image.FromFile("./images\\Boss1.png");
+            Image boss2 = Image.FromFile("./images\\Boss2.png");
 
 
             //create enemies img
